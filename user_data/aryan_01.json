@@ -1,0 +1,141 @@
+{
+    "user_id": "aryan_01",
+    "conversations": [
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "session_id": "sess_001",
+            "question": "How do I add a task?",
+            "answer": "Click the + button to add a new task."
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "session_id": "sess_001",
+            "question": "Can I set priorities?",
+            "answer": "Yes, you can set High, Medium or Low priority."
+        },
+        {
+            "timestamp": "2026-04-02 19:30:22",
+            "session_id": "default",
+            "question": "How do I set a deadline for a task?",
+            "answer": "Hi Aryan,\n\nTo set a deadline for any task, just click the **calendar icon** on it. The app will even send you a reminder 1 hour before it's due!\n\nGiven your focus on high-priority tasks, setting deadlines is a fantastic way to ensure those crucial items get done. Keep up the great work \u2013 this is a smart step towards boosting your completion rate!"
+        },
+        {
+            "timestamp": "2026-04-02 19:30:26",
+            "session_id": "default",
+            "question": "Can I get reminders for my tasks?",
+            "answer": "Hi Aryan,\n\nYes, you absolutely can get reminders for your tasks! The app sends them 1 hour before a task's deadline.\n\nSince you focus on high-priority items, setting deadlines for them is a great way to ensure you get those timely nudges and stay on track. You can easily set a deadline by clicking the calendar icon on any task. Keep up the great work!"
+        },
+        {
+            "timestamp": "2026-04-02 19:30:31",
+            "session_id": "default",
+            "question": "How can I be more productive?",
+            "answer": "Hey Aryan, great question! To boost your productivity, let's leverage your focus on high-priority tasks.\n\nGiven your dominant high-priority style, I'd suggest starting each day by reviewing and tackling your High priority items first. Remember, you can set tasks to High, Medium, or Low priority to keep things clear.\n\nAlso, since 'buy' is a topic you care about often, creating a dedicated category for those tasks could help you organize and complete them more efficiently.\n\nYou've got this! Even small changes can make a big difference."
+        }
+    ],
+    "events": [
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Buy groceries",
+                "priority": "high"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Finish RAG project",
+                "priority": "high"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "complete_task",
+            "metadata": {
+                "task": "Buy groceries"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Call mom",
+                "priority": "low"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Exercise",
+                "priority": "medium"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Buy vegetables",
+                "priority": "high"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Read ML paper",
+                "priority": "medium"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Finish RAG lesson",
+                "priority": "high"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "complete_task",
+            "metadata": {
+                "task": "Finish RAG project"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "complete_task",
+            "metadata": {
+                "task": "Finish RAG lesson"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Buy milk",
+                "priority": "low"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "add_task",
+            "metadata": {
+                "task": "Study embeddings",
+                "priority": "medium"
+            }
+        },
+        {
+            "timestamp": "2026-04-02 18:27:36",
+            "action": "complete_task",
+            "metadata": {
+                "task": "Call mom"
+            }
+        }
+    ],
+    "profile": {
+        "name": "Aryan",
+        "preferred_language": "English"
+    }
+}
