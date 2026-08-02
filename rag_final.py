@@ -138,14 +138,7 @@ def ask(question):
     # Step 4: Re-rank and keep top 3
     reranked_chunks = rerank_chunks(question, retrieved_chunks)
     top_chunks = reranked_chunks[:3] 
-    
-    # Why retrieve 6 but keep 3?
-
-    # This is the standard re-ranking pattern:
-    # Retrieve wide  → cast a wide net (6 chunks)
-    # Re-rank        → score each one for true relevance
-    # Keep narrow    → only top 3 go into the prompt
-    # If you only retrieve 3, re-ranking has nothing to work with. You need to over-retrieve first, then filter down.
+ 
     
     
     # Step 5: Build prompt with ORIGINAL question but retrieved contex
@@ -202,24 +195,3 @@ for question in questions:
     for i, source in enumerate(result['after_re-ranking_sources']):
         print(f"  {i+1}. {source}")
     print("\n" + "="*60 + "\n")
-
-
-# The Problem
-# Your retriever returns the top 3 chunks by cosine similarity. But cosine similarity isn't perfect — it measures vector closeness, not true relevance.
-# Sometimes you get this:
-# Query: "How does RAG reduce hallucination?"
-
-# Retrieved (by cosine similarity):
-# 1. "RAG retrieves documents from a knowledge base..."  ← relevant ✅
-# 2. "Vector embeddings capture semantic meaning..."     ← somewhat relevant 🤔
-# 3. "Prompt engineering involves designing inputs..."   ← not very relevant ❌
-# Chunk 3 sneaked in because its vector happened to be close — but it's not actually useful for answering the question. The LLM now has noise in its context window.
-# Re-ranking adds a second pass — a smarter model that looks at each retrieved chunk and scores it specifically against the question:
-# Retrieved chunks → re-ranker scores each one → reorder by true relevance
-
-# Two approaches
-# Approach 1 — Cross-encoder model (most accurate)
-# A dedicated model that takes (question, chunk) pairs and scores them. Very accurate but slower.
-# Approach 2 — LLM re-ranking (simpler, good enough)
-# Ask Gemini to score each chunk's relevance. Slower on large sets but no extra model needed.
-# We'll use Approach 2 — you already have Gemini set up and it's good enough for most real apps

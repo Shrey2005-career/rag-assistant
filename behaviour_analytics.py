@@ -62,32 +62,12 @@ class BehaviourAnalyzer:
         for task in adds["task"].dropna():
             for word in task.lower().split():
                 
-                # len(word) > 2 removes very short words that slipped 
-                # through stopwords — like "my", "or", "is" that aren't 
-                # in the stopwords set but are still meaningless for topic analysis.
-                
-                #"Buy groceries" → ["buy", "groceries"] ✅
-                # "Call mom"      → ["call", "mom"]      ✅
-                # "a", "an", "the", "to" → skipped      ❌
                 
                 if word not in stopwords and len(word) > 2:
                     word_counts[word] = word_counts.get(word, 0) + 1
                     
-                    # If you just do this:
-                    # word_counts["buy"] += 1   # crashes if "buy" doesn't exist yet!
-
-                    # # So instead:
-                    # word_counts["buy"] = word_counts.get("buy", 0) + 1
-                    # "get me the current count, but if it doesn't exist yet, start from 0"
-                    # then add 1 to whatever we got
-
-
-                    # Step by step for "buy" appearing 3 times:
-
-                    # First time:  word_counts.get("buy", 0) + 1 = 0 + 1 = 1
-                    # Second time: word_counts.get("buy", 0) + 1 = 1 + 1 = 2
-                    # Third time:  word_counts.get("buy", 0) + 1 = 2 + 1 = 3
-        
+         
+            
         # Sort by frequency
         sorted_words = sorted(
             word_counts.items(),
@@ -102,31 +82,6 @@ class BehaviourAnalyzer:
         if df.empty:
             return {}
         
-        
-# df["timestamp"].dt.hour    # → hour (0-23)
-# df["timestamp"].dt.day     # → day of month
-# df["timestamp"].dt.weekday # → 0=Monday, 6=Sunday
-# df["timestamp"].dt.month   # → month number
-
-# You first converted timestamps to datetime with pd.to_datetime() in _events_to_df() — that's what activates the .dt accessor. Without that conversion it's just a plain string and .dt wouldn't work.
-
-# groupby("hour").size() → .to_dict()
-# groupby groups all rows that share the same value, size() counts rows per group:
-# pythondf["hour"]
-# 18, 18, 18, 18, 18 ...  (all at hour 18 in your case)
-
-# df.groupby("hour").size()
-# hour
-# 18    13
-# dtype: int64
-
-# Again this is a Series with hour as the index. .to_dict() converts it:
-# {18: 13}, e.g., group = people who work 18 hours, so 18 hours is the group with 13 value means 13 users belong to this set
-# or group.
-
-# If you had events at different hours it'd look like:
-# python{9: 3, 14: 5, 18: 7, 21: 2}
-# That tells you the user is most active at 6pm.
 
 
         df["hour"] = df["timestamp"].dt.hour
@@ -142,13 +97,6 @@ class BehaviourAnalyzer:
         # Determine dominant priority
         dominant_priority = max(priorities, key=priorities.get) if priorities else "unknown"
         top_topics = [word for word, count in topics]
-        
-        #Here, first 'word' before 'for' keyword is the variable's name that will iterate in the loop.
-
-        #top_topics = [word for word, count in topics]
-        # topics is a list of tuples: [("buy", 3), ("finish", 2), ("rag", 2)]
-        # This unpacks each tuple and keeps only the word, throwing away the count:
-        # python["buy", "finish", "rag"]
         
         insight = {
             "completion_rate": rate,

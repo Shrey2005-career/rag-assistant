@@ -173,23 +173,3 @@ for question in questions:
     print(f"A: {result['answer']}")
     print(f"\nPredictions injected: {result['predictions']}")
     print("-" * 60)
-
-
-# What Makes This Different From Basic RAG
-
-# Basic RAG prompt:
-
-# Answer this question using the context.
-# Question: How do I set a deadline?
-
-
-# Personalised RAG prompt:
-
-# You know this user:
-# - Name: Aryan
-# - Completion rate: 44%
-# - Focuses on: buy, finish, rag tasks
-# - Recently asked about: adding tasks, priorities
-
-# Answer this question for THIS specific user.
-# Question: How do I set a deadline?
