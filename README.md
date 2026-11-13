@@ -106,8 +106,6 @@ The personalized assistant uses retrieved knowledge, user memory, and behaviour 
 ├── behaviour_analytics.py
 ├── knowledge.txt
 ├── aryan_01.json
-├── .env.example
-├── .gitignore
 └── README.md
 ```
 
@@ -123,8 +121,6 @@ The personalized assistant uses retrieved knowledge, user memory, and behaviour 
 | `behaviour_analytics.py` | Analyzes task completion rate, priorities, common topics, and activity patterns              |
 | `knowledge.txt`          | Custom knowledge base used for retrieval                                                     |
 | `aryan_01.json`          | Sample user data used for testing personalization                                            |                                            |
-| `.env.example`           | Example environment file showing required API key format                                     |
-| `.gitignore`             | Files and folders that should not be pushed to GitHub                                        |
 
 ---
 
